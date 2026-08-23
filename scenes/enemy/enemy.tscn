@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bde4jky2aqxhm"]
+
+[ext_resource type="Script" uid="uid://bmyiou3m7ft1g" path="res://components/circle_collision_shape.gd" id="1_4a83h"]
+[ext_resource type="Script" uid="uid://bku7y85wlfl" path="res://scenes/enemy/enemy.gd" id="1_a3pup"]
+[ext_resource type="Resource" uid="uid://b30b3apuooasb" path="res://data/basic_enemy.tres" id="2_40wdo"]
+
+[sub_resource type="Gradient" id="Gradient_883im"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.57228917, 0.7108434)
+colors = PackedColorArray(0.60784316, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_883im")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3pup"]
+radius = 32.0
+
+[node name="PathFollow2D" type="PathFollow2D" unique_id=1201246739]
+loop = false
+script = ExtResource("1_a3pup")
+enemy_stats = ExtResource("2_40wdo")
+
+[node name="Enemy" type="Area2D" parent="." unique_id=1680419469]
+collision_layer = 2
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=1699808318]
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="CircleCollisionShape" type="CollisionShape2D" parent="Enemy" unique_id=2102563477]
+shape = SubResource("CircleShape2D_a3pup")
+script = ExtResource("1_4a83h")
+size = 32.0
+metadata/_custom_type_script = "uid://bmyiou3m7ft1g"

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://w8bwcijdbdd3"]
+
+[ext_resource type="Script" uid="uid://bkne5s287d6gc" path="res://components/scene_spawner.gd" id="1_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://bde4jky2aqxhm" path="res://scenes/enemy/enemy.tscn" id="2_nd71p"]
+[ext_resource type="PackedScene" uid="uid://b6qexenqqef30" path="res://scenes/base/base.tscn" id="3_nd71p"]
+
+[sub_resource type="Curve2D" id="Curve2D_7ddre"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 193, 153, 0, 0, 0, 0, 308, 330, 0, 0, 0, 0, 705, 159)
+}
+point_count = 3
+
+[node name="Node" type="Node" unique_id=1642193432]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1088636374]
+curve = SubResource("Curve2D_7ddre")
+
+[node name="Base" parent="." unique_id=2018472515 instance=ExtResource("3_nd71p")]
+position = Vector2(712, 158)
+
+[node name="SceneSpawner" type="Button" parent="." unique_id=1415311439 node_paths=PackedStringArray("parent")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("1_j8ivh")
+parent = NodePath("../Path2D")
+scene_to_spawn = ExtResource("2_nd71p")
