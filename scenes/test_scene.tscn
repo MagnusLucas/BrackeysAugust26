@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bkne5s287d6gc" path="res://components/scene_spawner.gd" id="1_j8ivh"]
 [ext_resource type="PackedScene" uid="uid://bde4jky2aqxhm" path="res://scenes/enemy/enemy.tscn" id="2_nd71p"]
 [ext_resource type="PackedScene" uid="uid://b6qexenqqef30" path="res://scenes/base/base.tscn" id="3_nd71p"]
+[ext_resource type="PackedScene" uid="uid://b4ynafkntrxwl" path="res://scenes/tower/tower.tscn" id="4_7ddre"]
 
 [sub_resource type="Curve2D" id="Curve2D_7ddre"]
 _data = {
@@ -32,3 +33,6 @@ flat = true
 script = ExtResource("1_j8ivh")
 parent = NodePath("../Path2D")
 scene_to_spawn = ExtResource("2_nd71p")
+
+[node name="Tower" parent="." unique_id=1378462679 instance=ExtResource("4_7ddre")]
+position = Vector2(419, 192)

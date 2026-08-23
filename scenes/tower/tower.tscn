@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dk5gok64vxf3t" path="res://scenes/tower/tower.gd" id="1_r21n7"]
 [ext_resource type="Texture2D" uid="uid://0jssmfmsn2ra" path="res://icon.svg" id="2_cbwxl"]
+[ext_resource type="Resource" uid="uid://tjpah63bte83" path="res://data/basic_tower_stats.tres" id="2_nfofi"]
 [ext_resource type="Script" uid="uid://br4k1mhulpog1" path="res://components/attack_range.gd" id="3_cbwxl"]
 
 [node name="Tower" type="Node2D" unique_id=1378462679]
 script = ExtResource("1_r21n7")
+tower_stats = ExtResource("2_nfofi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=379143641]
 texture = ExtResource("2_cbwxl")
@@ -15,3 +17,7 @@ collision_mask = 2
 monitorable = false
 script = ExtResource("3_cbwxl")
 metadata/_custom_type_script = "uid://br4k1mhulpog1"
+
+[node name="AttackIntervalTimer" type="Timer" parent="." unique_id=1034118862]
+
+[node name="BulletSpawner" type="Node2D" parent="." unique_id=1072665542]

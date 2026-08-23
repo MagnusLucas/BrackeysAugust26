@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TowerStats" format=3 uid="uid://tjpah63bte83"]
+
+[ext_resource type="Script" uid="uid://l30wx1ac771v" path="res://data/tower_stats.gd" id="1_e7epm"]
+
+[resource]
+script = ExtResource("1_e7epm")
+see_range = 100.0
+attack_interval = 1.0
+metadata/_custom_type_script = "uid://l30wx1ac771v"

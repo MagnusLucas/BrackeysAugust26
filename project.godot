@@ -25,6 +25,7 @@ window/stretch/aspect="expand"
 2d_physics/layer_1="tower_attack_range"
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="base"
+2d_physics/layer_4="bullet"
 
 [physics]
 
