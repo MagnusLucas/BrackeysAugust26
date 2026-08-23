@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_hheet")
-speed = 100
+speed = 1000
 metadata/_custom_type_script = "uid://cnr71mbccl4q2"

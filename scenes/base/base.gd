@@ -25,4 +25,4 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_lost_all_health() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://scenes/main_menu.tscn")
