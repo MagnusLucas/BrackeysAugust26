@@ -29,7 +29,7 @@ func set_stats(value) -> void:
 
 func shoot(target: Enemy = enemies_in_range[0]) -> void:
 	var direction := target.global_position - bullet_spawner.global_position
-	var bullet := Bullet.spawn_bullet(100, direction, 10)
+	var bullet := Bullet.spawn_bullet(100, direction, 10, tower_stats.damage_per_bullet)
 	bullet_spawner.add_child.call_deferred(bullet)
 
 
