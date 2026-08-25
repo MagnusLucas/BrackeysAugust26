@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _take_damage(amount: float) -> void:
+	print("ouch!", stats.health, stats.health - amount)
 	stats.health -= amount
 	if stats.health <= 0:
 		_die()
