@@ -35,8 +35,9 @@ func shoot(target: Enemy = enemies_in_range[0]) -> void:
 
 func _on_attack_range_enemy_entered(enemy: Enemy) -> void:
 	if enemies_in_range.is_empty():
-		shoot(enemy)
-		attack_interval_timer.start()
+		if attack_interval_timer.is_stopped():
+			shoot(enemy)
+			attack_interval_timer.start()
 	enemies_in_range.append(enemy)
 
 

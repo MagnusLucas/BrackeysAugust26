@@ -4,12 +4,30 @@
 [ext_resource type="PackedScene" uid="uid://bde4jky2aqxhm" path="res://scenes/enemy/enemy.tscn" id="2_nd71p"]
 [ext_resource type="PackedScene" uid="uid://b6qexenqqef30" path="res://scenes/base/base.tscn" id="3_nd71p"]
 [ext_resource type="PackedScene" uid="uid://b4ynafkntrxwl" path="res://scenes/tower/tower.tscn" id="4_7ddre"]
+[ext_resource type="Script" uid="uid://bgrv1axsi84hd" path="res://components/enemy_spawner.gd" id="5_qjeyg"]
+[ext_resource type="Script" uid="uid://bt1xs3f0rj8s1" path="res://data/wave_stats.gd" id="6_3qnke"]
 
 [sub_resource type="Curve2D" id="Curve2D_7ddre"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 193, 153, 0, 0, 0, 0, 308, 330, 0, 0, 0, 0, 705, 159)
 }
 point_count = 3
+
+[sub_resource type="Resource" id="Resource_qjeyg"]
+script = ExtResource("6_3qnke")
+enemy_colour = Color(0, 0.59607846, 0.49019608, 1)
+number_of_enemies = 2
+wave_length = 5.0
+spawn_time = 0.2
+metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
+
+[sub_resource type="Resource" id="Resource_3qnke"]
+script = ExtResource("6_3qnke")
+enemy_colour = Color(1, 0, 1, 1)
+number_of_enemies = 5
+wave_length = 3.0
+spawn_time = 2.0
+metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
 
 [node name="Node" type="Node" unique_id=1642193432]
 
@@ -36,3 +54,15 @@ scene_to_spawn = ExtResource("2_nd71p")
 
 [node name="Tower" parent="." unique_id=1378462679 instance=ExtResource("4_7ddre")]
 position = Vector2(419, 192)
+
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=899718097 node_paths=PackedStringArray("parent", "wave_timer", "spawn_interval_timer")]
+script = ExtResource("5_qjeyg")
+parent = NodePath("../Path2D")
+wave_array = Array[ExtResource("6_3qnke")]([SubResource("Resource_qjeyg"), SubResource("Resource_3qnke")])
+wave_timer = NodePath("WaveTimer")
+spawn_interval_timer = NodePath("SpawnIntervalTimer")
+metadata/_custom_type_script = "uid://bgrv1axsi84hd"
+
+[node name="WaveTimer" type="Timer" parent="EnemySpawner" unique_id=614789414]
+
+[node name="SpawnIntervalTimer" type="Timer" parent="EnemySpawner" unique_id=1252083182]
