@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ynafkntrxwl" path="res://scenes/tower/tower.tscn" id="4_7ddre"]
 [ext_resource type="Script" uid="uid://bgrv1axsi84hd" path="res://components/enemy_spawner.gd" id="5_qjeyg"]
 [ext_resource type="Script" uid="uid://bt1xs3f0rj8s1" path="res://data/wave_stats.gd" id="6_3qnke"]
+[ext_resource type="Script" uid="uid://bpa1ym1cht2d3" path="res://custom_nodes/wave_manager.gd" id="7_wtsjf"]
 
 [sub_resource type="Curve2D" id="Curve2D_7ddre"]
 _data = {
@@ -55,14 +56,18 @@ scene_to_spawn = ExtResource("2_nd71p")
 [node name="Tower" parent="." unique_id=1378462679 instance=ExtResource("4_7ddre")]
 position = Vector2(419, 192)
 
-[node name="EnemySpawner" type="Node2D" parent="." unique_id=899718097 node_paths=PackedStringArray("parent", "wave_timer", "spawn_interval_timer")]
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=899718097 node_paths=PackedStringArray("parent", "wave_manager")]
 script = ExtResource("5_qjeyg")
 parent = NodePath("../Path2D")
+wave_manager = NodePath("../WaveManager")
+metadata/_custom_type_script = "uid://bgrv1axsi84hd"
+
+[node name="WaveManager" type="Node" parent="." unique_id=350722552 node_paths=PackedStringArray("wave_timer", "spawn_interval_timer")]
+script = ExtResource("7_wtsjf")
 wave_array = Array[ExtResource("6_3qnke")]([SubResource("Resource_qjeyg"), SubResource("Resource_3qnke")])
 wave_timer = NodePath("WaveTimer")
 spawn_interval_timer = NodePath("SpawnIntervalTimer")
-metadata/_custom_type_script = "uid://bgrv1axsi84hd"
 
-[node name="WaveTimer" type="Timer" parent="EnemySpawner" unique_id=614789414]
+[node name="WaveTimer" type="Timer" parent="WaveManager" unique_id=105234]
 
-[node name="SpawnIntervalTimer" type="Timer" parent="EnemySpawner" unique_id=1252083182]
+[node name="SpawnIntervalTimer" type="Timer" parent="WaveManager" unique_id=1237478424]
