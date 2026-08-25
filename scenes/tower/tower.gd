@@ -29,14 +29,15 @@ func set_stats(value) -> void:
 
 func shoot(target: Enemy = enemies_in_range[0]) -> void:
 	var direction := target.global_position - bullet_spawner.global_position
-	var bullet := Bullet.spawn_bullet(100, direction, 10)
+	var bullet := Bullet.spawn_bullet(50, direction, 10, tower_stats.damage_per_bullet)
 	bullet_spawner.add_child.call_deferred(bullet)
 
 
 func _on_attack_range_enemy_entered(enemy: Enemy) -> void:
 	if enemies_in_range.is_empty():
-		shoot(enemy)
-		attack_interval_timer.start()
+		if attack_interval_timer.is_stopped():
+			shoot(enemy)
+			attack_interval_timer.start()
 	enemies_in_range.append(enemy)
 
 

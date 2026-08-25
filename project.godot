@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[gui]
+
+theme/custom="uid://l0mu2yy7t2dd"
+
 [layer_names]
 
 2d_physics/layer_1="tower_attack_range"
