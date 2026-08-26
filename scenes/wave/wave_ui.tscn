@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cfukaer5ni8nm"]
+
+[ext_resource type="Script" uid="uid://pitebr11hb5d" path="res://scenes/wave/wave_ui.gd" id="1_hqra4"]
+[ext_resource type="Script" uid="uid://bt1xs3f0rj8s1" path="res://data/wave_stats.gd" id="2_av0sf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.1254902, 0.18039216, 0.21568628, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2509804, 0.15294118, 0.31764707, 1)
+
+[sub_resource type="Resource" id="Resource_r2vna"]
+script = ExtResource("2_av0sf")
+enemy_colour = Color(0.8392157, 0, 0, 1)
+number_of_enemies = 2
+wave_length = 5.0
+spawn_time = 2.0
+metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
+
+[node name="WaveUI" type="PanelContainer" unique_id=1840122186]
+offset_right = 48.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+script = ExtResource("1_hqra4")
+wave = SubResource("Resource_r2vna")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1902627643]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=1373007647]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+color = Color(0.8392157, 0, 0, 1)
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1814682041]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
