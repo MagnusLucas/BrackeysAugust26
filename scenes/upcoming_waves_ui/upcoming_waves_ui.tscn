@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ciax1ej5mlsh1"]
+
+[ext_resource type="Script" uid="uid://dm4ytoxmceakc" path="res://scenes/upcoming_waves_ui/wave_mover.gd" id="1_affl4"]
+[ext_resource type="Script" uid="uid://dw1bpo4uekk23" path="res://scenes/upcoming_waves_ui/upcoming_waves_ui.gd" id="1_rxdv2"]
+[ext_resource type="PackedScene" uid="uid://cfukaer5ni8nm" path="res://scenes/wave/wave_ui.tscn" id="3_3pr71"]
+[ext_resource type="Script" uid="uid://jhu74ckqamec" path="res://scenes/upcoming_waves_ui/wave_container.gd" id="3_affl4"]
+
+[node name="UpcomingWavesUI" type="PanelContainer" unique_id=1173204523]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -490.0
+offset_top = 25.0
+offset_right = 490.0
+offset_bottom = 83.0
+grow_horizontal = 2
+script = ExtResource("1_rxdv2")
+
+[node name="WaveMover" type="ScrollContainer" parent="." unique_id=1194812445]
+custom_minimum_size = Vector2(960, 38)
+layout_mode = 2
+horizontal_scroll_mode = 3
+script = ExtResource("1_affl4")
+
+[node name="WaveContainer" type="HBoxContainer" parent="WaveMover" unique_id=1678684939]
+layout_mode = 2
+theme_override_constants/separation = 1
+script = ExtResource("3_affl4")
+
+[node name="WaveUI" parent="WaveMover/WaveContainer" unique_id=1840122186 instance=ExtResource("3_3pr71")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="WaveMover/WaveContainer" unique_id=2088977606]
+custom_minimum_size = Vector2(10000, 0)
+layout_mode = 2

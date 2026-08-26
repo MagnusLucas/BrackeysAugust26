@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bgrv1axsi84hd" path="res://components/enemy_spawner.gd" id="5_qjeyg"]
 [ext_resource type="Script" uid="uid://bt1xs3f0rj8s1" path="res://data/wave_stats.gd" id="6_3qnke"]
 [ext_resource type="Script" uid="uid://bpa1ym1cht2d3" path="res://custom_nodes/wave_manager.gd" id="7_wtsjf"]
+[ext_resource type="PackedScene" uid="uid://ciax1ej5mlsh1" path="res://scenes/upcoming_waves_ui/upcoming_waves_ui.tscn" id="8_rnaij"]
 
 [sub_resource type="Curve2D" id="Curve2D_7ddre"]
 _data = {
@@ -18,16 +19,16 @@ point_count = 3
 script = ExtResource("6_3qnke")
 enemy_colour = Color(0, 0.59607846, 0.49019608, 1)
 number_of_enemies = 2
-wave_length = 5.0
-spawn_time = 0.2
+wave_length = 10.0
+spawn_time = 1.0
 metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
 
 [sub_resource type="Resource" id="Resource_3qnke"]
 script = ExtResource("6_3qnke")
 enemy_colour = Color(1, 0, 1, 1)
 number_of_enemies = 5
-wave_length = 3.0
-spawn_time = 2.0
+wave_length = 6.0
+spawn_time = 3.0
 metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
 
 [node name="Node" type="Node" unique_id=1642193432]
@@ -71,3 +72,6 @@ spawn_interval_timer = NodePath("SpawnIntervalTimer")
 [node name="WaveTimer" type="Timer" parent="WaveManager" unique_id=105234]
 
 [node name="SpawnIntervalTimer" type="Timer" parent="WaveManager" unique_id=1237478424]
+
+[node name="UpcomingWavesUI" parent="." unique_id=1173204523 node_paths=PackedStringArray("wave_manager") instance=ExtResource("8_rnaij")]
+wave_manager = NodePath("../WaveManager")

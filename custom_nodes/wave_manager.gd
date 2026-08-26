@@ -25,6 +25,10 @@ func is_last_wave() -> bool:
 	return current_wave_id == wave_array.size()
 
 
+func get_wave_array() -> Array[Wave]:
+	return wave_array
+
+
 func _on_wave_timer_timeout() -> void:
 	current_wave_id += 1
 	if current_wave_id < wave_array.size():

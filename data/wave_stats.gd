@@ -2,6 +2,7 @@ class_name Wave
 extends Resource
 
 signal spawning_finished
+signal enemy_spawned
 
 @export var enemy_colour: Color
 @export var number_of_enemies: int
@@ -18,5 +19,6 @@ func get_interval_between_spawns() -> float:
 
 func register_enemy_spawn() -> void:
 	enemies_spawned += 1
+	enemy_spawned.emit()
 	if enemies_spawned == number_of_enemies:
 		spawning_finished.emit()

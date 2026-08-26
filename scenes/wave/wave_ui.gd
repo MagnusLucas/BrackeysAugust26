@@ -1,8 +1,8 @@
-@tool
 class_name WaveUI
 extends PanelContainer
 
-const WAVE_LENGTH_MULTIPLIER := 30
+const WAVE_LENGTH_MULTIPLIER := 60
+const WAVE_UI = preload("res://scenes/wave/wave_ui.tscn")
 
 @export var wave: Wave : set = set_wave
 
@@ -11,15 +11,31 @@ const WAVE_LENGTH_MULTIPLIER := 30
 @onready var label: Label = $HBoxContainer/Label
 
 
+static func new_from_wave(a_wave: Wave) -> WaveUI:
+	var wave_ui: WaveUI = WAVE_UI.instantiate()
+	wave_ui.set_wave(a_wave)
+	return wave_ui
+
+
 func set_wave(value) -> void:
+	if wave:
+		wave.enemy_spawned.disconnect(_update_label)
 	wave = value
+	if wave:
+		wave.enemy_spawned.connect(_update_label)
 	_update_visuals()
+
+
+func _update_label() -> void:
+	label.text = str(wave.number_of_enemies - wave.enemies_spawned)
 
 
 func _update_visuals() -> void:
 	if !wave:
 		return
 	if !is_node_ready():
+		if ready.is_connected(_update_visuals):
+			return
 		ready.connect(_update_visuals, CONNECT_ONE_SHOT)
 		return
 	
