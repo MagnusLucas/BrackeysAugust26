@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_hheet")
+colour = Color(0.64705884, 0.1882353, 0.1882353, 1)
 speed = 100
 metadata/_custom_type_script = "uid://cnr71mbccl4q2"

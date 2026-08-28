@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 		path_follow.progress += stats.speed * delta
 
 
-func _take_damage(amount: float) -> void:
+func take_damage(amount: float) -> void:
 	stats.health -= amount
 	if stats.health <= 0:
 		_die()
@@ -22,7 +22,7 @@ func _take_damage(amount: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Bullet:
-		_take_damage((area as Bullet).get_damage())
+		take_damage((area as Bullet).get_damage())
 
 
 func _die() -> void:

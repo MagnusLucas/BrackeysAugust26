@@ -11,12 +11,12 @@ var damage: float
 
 static func spawn_bullet(
 		bullet_speed: float, fly_direction: Vector2,
-		lifetime: float, bullet_damage: float) -> Bullet:
+		lifetime: float, damage_per_bullet: float) -> Bullet:
 	var bullet: Bullet = BULLET.instantiate()
 	bullet.speed = bullet_speed
 	bullet.direction = fly_direction
 	bullet.lifetime_timer.wait_time = lifetime
-	bullet.damage = bullet_damage
+	bullet.damage = damage_per_bullet
 	return bullet
 
 
