@@ -161,6 +161,14 @@ colors = PackedColorArray(0.8745098, 0.5176471, 0.64705884, 1, 0.8745098, 0.5176
 [sub_resource type="Gradient" id="Gradient_57qmd"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.7294118)
 
+[sub_resource type="Gradient" id="Gradient_8wc2c"]
+colors = PackedColorArray(0.2509804, 0.15294118, 0.31764707, 1, 0.2509804, 0.15294118, 0.31764707, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yf5fn"]
+gradient = SubResource("Gradient_8wc2c")
+width = 4
+height = 8
+
 [node name="Tower" type="Node2D" unique_id=272296311 node_paths=PackedStringArray("collision_area")]
 script = ExtResource("1_r21n7")
 collision_area = NodePath("TowerArea2D")
@@ -168,7 +176,7 @@ collision_area = NodePath("TowerArea2D")
 [node name="TowerArea2D" type="Area2D" parent="." unique_id=357795283 node_paths=PackedStringArray("tower")]
 scale = Vector2(2, 2)
 collision_layer = 16
-collision_mask = 0
+collision_mask = 8
 script = ExtResource("3_vec08")
 tower = NodePath("..")
 
@@ -209,4 +217,16 @@ color_initial_ramp = SubResource("Gradient_57qmd")
 script = ExtResource("5_vec08")
 attack_area = NodePath("../AttackRange")
 
+[node name="HitParticles" type="CPUParticles2D" parent="." unique_id=1749164640]
+position = Vector2(-2, 26)
+emitting = false
+texture = SubResource("GradientTexture2D_yf5fn")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.59
+emission_shape = 3
+emission_rect_extents = Vector2(10, 6)
+gravity = Vector2(0, 261.332)
+
+[connection signal="area_entered" from="TowerArea2D" to="TowerArea2D" method="_on_area_entered"]
 [connection signal="input_event" from="TowerArea2D" to="TowerArea2D" method="_on_input_event"]

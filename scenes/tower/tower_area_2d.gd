@@ -34,3 +34,8 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		State.PICKED_UP:
 			current_state = State.ON_MAP
 			placed_down.emit()
+
+
+func _on_area_entered(bullet: Bullet) -> void:
+	if bullet.source != self:
+		tower.get_hit()

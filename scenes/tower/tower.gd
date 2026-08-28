@@ -11,6 +11,8 @@ var enemies_in_range: Array[Node2D]
 @onready var bullet_spawner: Node2D = $BulletSpawner
 @onready var area_attack_visual: AreaAttackVisual = $AreaAttackVisual
 @onready var tower_animated_sprite_2d: TowerAnimatedSprite2D = $TowerAnimatedSprite2D
+@onready var hit_particles: CPUParticles2D = $HitParticles
+@onready var tower_area_2d: TowerArea2D = $TowerArea2D
 
 
 func _ready() -> void:
@@ -36,12 +38,16 @@ func shoot(target: Node2D = enemies_in_range[0]) -> void:
 	match tower_stats.attack_shape:
 		TowerStats.AttackShape.BULLET:
 			var direction := target.global_position - bullet_spawner.global_position
-			var bullet := Bullet.spawn_bullet(50, direction, 10, tower_stats.damage_per_bullet)
+			var bullet := Bullet.spawn_bullet(50, direction, 10, tower_stats.damage_per_bullet, tower_area_2d)
 			bullet_spawner.add_child.call_deferred(bullet)
 		TowerStats.AttackShape.AREA:
 			area_attack_visual.attack()
 			for enemy in enemies_in_range:
 				_hit_enemy(enemy)
+
+
+func get_hit() -> void:
+	hit_particles.emitting = true
 
 
 func _hit_enemy(enemy: Node2D) -> void:
@@ -54,7 +60,7 @@ func _hit_enemy(enemy: Node2D) -> void:
 			#print("ouch, not my base!")
 		TowerStats.AttackTarget.TOWER:
 			if not enemy is Tower: return
-			#print("tower bonked!")
+			(enemy as Tower).get_hit()
 
 
 func _on_attack_range_area_entered(area: Area2D) -> void:

@@ -7,16 +7,19 @@ const BULLET = preload("uid://ccm10bmhcxkc7")
 var speed := 100.0
 var direction: Vector2
 var damage: float
+var source: Area2D
 
 
 static func spawn_bullet(
 		bullet_speed: float, fly_direction: Vector2,
-		lifetime: float, damage_per_bullet: float) -> Bullet:
+		lifetime: float, damage_per_bullet: float,
+		source_area: Area2D) -> Bullet:
 	var bullet: Bullet = BULLET.instantiate()
 	bullet.speed = bullet_speed
 	bullet.direction = fly_direction
 	bullet.lifetime_timer.wait_time = lifetime
 	bullet.damage = damage_per_bullet
+	bullet.source = source_area
 	return bullet
 
 
