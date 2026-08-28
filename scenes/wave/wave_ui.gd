@@ -41,7 +41,7 @@ func _update_visuals() -> void:
 	
 	h_box_container.custom_minimum_size.x = WAVE_LENGTH_MULTIPLIER * wave.wave_length
 	h_box_container.size.x = WAVE_LENGTH_MULTIPLIER * wave.wave_length
-	color_rect.color = wave.enemy_colour
+	color_rect.color = wave.enemy_resource.colour
 	color_rect.size_flags_stretch_ratio = wave.spawn_time
 	label.text = str(wave.number_of_enemies)
 	label.size_flags_stretch_ratio = wave.wave_length - wave.spawn_time

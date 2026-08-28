@@ -4,7 +4,7 @@ extends Resource
 signal spawning_finished
 signal enemy_spawned
 
-@export var enemy_colour: Color
+@export var enemy_resource: EnemyStats
 @export var number_of_enemies: int
 @export var wave_length: float
 ## Shorter than wave length...

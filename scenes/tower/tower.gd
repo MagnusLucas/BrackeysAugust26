@@ -45,3 +45,8 @@ func _on_attack_range_enemy_exited(enemy: Enemy) -> void:
 	enemies_in_range.erase(enemy)
 	if enemies_in_range.is_empty():
 		attack_interval_timer.stop()
+
+
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print("button!")

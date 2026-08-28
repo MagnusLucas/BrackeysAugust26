@@ -4,12 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://0jssmfmsn2ra" path="res://icon.svg" id="2_cbwxl"]
 [ext_resource type="Resource" uid="uid://tjpah63bte83" path="res://data/basic_tower_stats.tres" id="2_nfofi"]
 [ext_resource type="Script" uid="uid://br4k1mhulpog1" path="res://components/attack_range.gd" id="3_cbwxl"]
+[ext_resource type="Script" uid="uid://cyv42kgt3m6wl" path="res://scenes/tower/tower_area_2d.gd" id="3_vec08"]
 
-[node name="Tower" type="Node2D" unique_id=1378462679]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(64, 64)
+
+[node name="Tower" type="Node2D" unique_id=272296311]
 script = ExtResource("1_r21n7")
 tower_stats = ExtResource("2_nfofi")
 
+[node name="TowerArea2D" type="Area2D" parent="." unique_id=357795283 node_paths=PackedStringArray("tower")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("3_vec08")
+tower = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerArea2D" unique_id=2080929908]
+shape = SubResource("RectangleShape2D_g4v7s")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=379143641]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_cbwxl")
 
 [node name="AttackRange" type="Area2D" parent="." unique_id=867181353]
@@ -21,3 +35,5 @@ metadata/_custom_type_script = "uid://br4k1mhulpog1"
 [node name="AttackIntervalTimer" type="Timer" parent="." unique_id=1034118862]
 
 [node name="BulletSpawner" type="Node2D" parent="." unique_id=1072665542]
+
+[connection signal="input_event" from="TowerArea2D" to="TowerArea2D" method="_on_input_event"]

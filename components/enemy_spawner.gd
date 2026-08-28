@@ -14,5 +14,5 @@ func _ready() -> void:
 
 func _spawn_enemy(wave: Wave) -> void:
 	var enemy := ENEMY.instantiate()
-	enemy.modulate = wave.enemy_colour
+	enemy.modulate = wave.enemy_resource.colour
 	parent.add_child(enemy)
