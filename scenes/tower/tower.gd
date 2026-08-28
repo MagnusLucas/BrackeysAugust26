@@ -10,6 +10,7 @@ var enemies_in_range: Array[Node2D]
 @onready var attack_interval_timer: Timer = $AttackIntervalTimer
 @onready var bullet_spawner: Node2D = $BulletSpawner
 @onready var area_attack_visual: AreaAttackVisual = $AreaAttackVisual
+@onready var tower_animated_sprite_2d: TowerAnimatedSprite2D = $TowerAnimatedSprite2D
 
 
 func _ready() -> void:
@@ -31,6 +32,7 @@ func set_stats(value) -> void:
 
 
 func shoot(target: Node2D = enemies_in_range[0]) -> void:
+	tower_animated_sprite_2d.attack()
 	match tower_stats.attack_shape:
 		TowerStats.AttackShape.BULLET:
 			var direction := target.global_position - bullet_spawner.global_position
