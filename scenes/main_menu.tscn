@@ -2,6 +2,190 @@
 
 [ext_resource type="Script" uid="uid://2lo2ikplmm8o" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://0jssmfmsn2ra" path="res://icon.svg" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://dwh4u7khf05td" path="res://assets/main_menu/Main_menu.png" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://dnravekkc4c1m" path="res://scenes/buttons.gd" id="4_8ln24"]
+[ext_resource type="Texture2D" uid="uid://dsidf6wamou6e" path="res://assets/main_menu/Button_play.png" id="5_8ln24"]
+[ext_resource type="Texture2D" uid="uid://diuxxqfuxwmmg" path="res://assets/main_menu/Button_settings.png" id="6_oa1go"]
+[ext_resource type="AnimationLibrary" uid="uid://dl1qpcet5d2g4" path="res://assets/main_menu/animations/play.res" id="7_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://dn0bnx2lotgf2" path="res://assets/main_menu/Button_credits.png" id="8_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://dhg6uj6u5ae1e" path="res://assets/main_menu/Button_quit.png" id="9_jk1qb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqqt6"]
+atlas = ExtResource("3_bqqt6")
+region = Rect2(0, 0, 576, 324)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
+atlas = ExtResource("3_bqqt6")
+region = Rect2(576, 0, 576, 324)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nj8pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqqt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu84c")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uslsw"]
+atlas = ExtResource("5_8ln24")
+region = Rect2(0, 0, 105, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgse7"]
+atlas = ExtResource("6_oa1go")
+region = Rect2(0, 0, 127, 0)
+
+[sub_resource type="Animation" id="Animation_oa1go"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Settings:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_hgse7")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dd4i"]
+_data = {
+&"RESET": SubResource("Animation_oa1go")
+}
+
+[sub_resource type="Animation" id="Animation_jk1qb"]
+resource_name = "play_idle"
+length = 0.2500125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Settings:texture_normal:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(7.01107e-05, 7.01107e-05),
+"update": 0,
+"values": [Rect2(0, 0, 127, 0), Rect2(127, 0, 127, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5dd4i"]
+resource_name = "play_idle"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Settings:texture_normal:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(7.01107e-05, 7.01107e-05),
+"update": 0,
+"values": [Rect2(0, 0, 127, 0), Rect2(127, 0, 127, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lgwnu"]
+_data = {
+&"settings_focused": SubResource("Animation_jk1qb"),
+&"settings_idle": SubResource("Animation_5dd4i")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq18q"]
+atlas = ExtResource("8_tbmy8")
+region = Rect2(0, 0, 120, 0)
+
+[sub_resource type="Animation" id="Animation_lgwnu"]
+length = 0.2500125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Rect2(0, 0, 120, 0), Rect2(120, 0, 120, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_flqon"]
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Rect2(0, 0, 120, 0), Rect2(120, 0, 120, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcqid"]
+_data = {
+&"credits_focused": SubResource("Animation_lgwnu"),
+&"credits_idle": SubResource("Animation_flqon")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ajci"]
+atlas = ExtResource("9_jk1qb")
+region = Rect2(0, 0, 103, 0)
+
+[sub_resource type="Animation" id="Animation_rcqid"]
+length = 0.2500125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Rect2(0, 0, 103, 0), Rect2(103, 0, 103, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1ajci"]
+length = 0.500025
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Rect2(0, 0, 103, 0), Rect2(103, 0, 103, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7b55j"]
+_data = {
+&"quit_focused": SubResource("Animation_rcqid"),
+&"quit_idle": SubResource("Animation_1ajci")
+}
 
 [node name="MainMenu" type="PanelContainer" unique_id=1644340735]
 anchors_preset = 15
@@ -11,10 +195,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
 
+[node name="Background" type="Control" parent="." unique_id=1373009765]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+
+[node name="TextureRect" type="AnimatedSprite2D" parent="Background" unique_id=86190150]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nj8pf")
+autoplay = "default"
+frame_progress = 0.34072882
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1683935326]
 layout_mode = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=760755509]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=755936962]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_l6cm7")
@@ -23,24 +224,47 @@ texture = ExtResource("1_l6cm7")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.21
+script = ExtResource("4_8ln24")
 
-[node name="Play" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=816302573]
+[node name="Play" type="TextureButton" parent="VBoxContainer/VBoxContainer" unique_id=1028606667]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-text = "PLAY"
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_uslsw")
+stretch_mode = 5
 
-[node name="Settings" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1482222820]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-text = "SETTINGS"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/VBoxContainer/Play" unique_id=717009478]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_5dd4i")
+libraries/play = ExtResource("7_tbmy8")
 
-[node name="Quit" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=2040616969]
+[node name="Settings" type="TextureButton" parent="VBoxContainer/VBoxContainer" unique_id=316298778]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-text = "QUIT"
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_hgse7")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/VBoxContainer/Settings" unique_id=542760512]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_5dd4i")
+libraries/settings = SubResource("AnimationLibrary_lgwnu")
+
+[node name="Credits" type="TextureButton" parent="VBoxContainer/VBoxContainer" unique_id=414257807]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_vq18q")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/VBoxContainer/Credits" unique_id=1084384732]
+libraries/credits = SubResource("AnimationLibrary_rcqid")
+
+[node name="Quit" type="TextureButton" parent="VBoxContainer/VBoxContainer" unique_id=2063622278]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_1ajci")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/VBoxContainer/Quit" unique_id=76054833]
+libraries/quit = SubResource("AnimationLibrary_7b55j")
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
