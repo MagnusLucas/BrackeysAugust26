@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cnr71mbccl4q2" path="res://data/enemy_stats.gd" id="7_h3xc6"]
 [ext_resource type="Script" uid="uid://bpa1ym1cht2d3" path="res://custom_nodes/wave_manager.gd" id="7_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://ciax1ej5mlsh1" path="res://scenes/upcoming_waves_ui/upcoming_waves_ui.tscn" id="8_rnaij"]
+[ext_resource type="Texture2D" uid="uid://cc13cmsi0g283" path="res://assets/Grass.png" id="11_6qxox"]
 
 [sub_resource type="Curve2D" id="Curve2D_7ddre"]
 _data = {
@@ -70,6 +71,7 @@ position = Vector2(177, 331)
 tower_stats = SubResource("Resource_6qxox")
 
 [node name="Tower2" parent="." unique_id=2102954197 instance=ExtResource("4_7ddre")]
+visible = false
 position = Vector2(414, 349)
 tower_stats = SubResource("Resource_s36qc")
 
@@ -91,3 +93,12 @@ spawn_interval_timer = NodePath("SpawnIntervalTimer")
 
 [node name="UpcomingWavesUI" parent="." unique_id=1173204523 node_paths=PackedStringArray("wave_manager") instance=ExtResource("8_rnaij")]
 wave_manager = NodePath("../WaveManager")
+
+[node name="AnimatedSprite2D" type="TextureRect" parent="." unique_id=672893781]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_6qxox")
