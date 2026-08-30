@@ -125,8 +125,9 @@ path_follow = NodePath("..")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=1532550252]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nj8pf")
-animation = &"death"
-frame_progress = 0.4749244
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.6574614
 
 [node name="CircleCollisionShape" type="CollisionShape2D" parent="Enemy" unique_id=2102563477]
 scale = Vector2(2, 2)

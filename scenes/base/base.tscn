@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bmyiou3m7ft1g" path="res://components/circle_collision_shape.gd" id="1_yoymw"]
 [ext_resource type="Resource" uid="uid://dacwdrcvc2p5y" path="res://data/basic_base_stats.tres" id="2_2ket1"]
 [ext_resource type="Texture2D" uid="uid://cu2brrjdox8jr" path="res://assets/towers/King.png" id="3_t7shy"]
-[ext_resource type="Texture2D" uid="uid://0jssmfmsn2ra" path="res://icon.svg" id="3_ttpcr"]
+[ext_resource type="Texture2D" uid="uid://bsx0slic4lo2o" path="res://assets/Coin.png" id="5_t7shy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e5se4"]
 atlas = ExtResource("3_t7shy")
@@ -31,6 +31,63 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_opt3f"]
 radius = 64.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_opt3f"]
+atlas = ExtResource("5_t7shy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g60pn"]
+atlas = ExtResource("5_t7shy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knman"]
+atlas = ExtResource("5_t7shy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oujnm"]
+atlas = ExtResource("5_t7shy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvxot"]
+atlas = ExtResource("5_t7shy")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3exvk"]
+atlas = ExtResource("5_t7shy")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ux5t"]
+atlas = ExtResource("5_t7shy")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgse7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opt3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g60pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knman")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oujnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvxot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3exvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ux5t")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Base" type="Area2D" unique_id=2018472515]
 collision_layer = 4
 collision_mask = 2
@@ -41,7 +98,7 @@ base_stats = ExtResource("2_2ket1")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nj8pf")
 autoplay = "default"
-frame_progress = 0.8873383
+frame_progress = 0.8073361
 
 [node name="CircleCollisionShape" type="CollisionShape2D" parent="." unique_id=1503516649]
 shape = SubResource("CircleShape2D_opt3f")
@@ -62,38 +119,65 @@ offset_right = 108.0
 offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 4
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HealthContainer" unique_id=2112169752]
-custom_minimum_size = Vector2(16, 16)
+[node name="TextureRect" type="Control" parent="HealthContainer" unique_id=1570631375]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("3_ttpcr")
-expand_mode = 3
-stretch_mode = 4
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
-[node name="TextureRect2" type="TextureRect" parent="HealthContainer" unique_id=1070389518]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("3_ttpcr")
-expand_mode = 3
-stretch_mode = 4
+[node name="Coin" type="AnimatedSprite2D" parent="HealthContainer/TextureRect" unique_id=377480157]
+position = Vector2(16, 16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hgse7")
+autoplay = "default"
 
-[node name="TextureRect3" type="TextureRect" parent="HealthContainer" unique_id=902475505]
-custom_minimum_size = Vector2(16, 16)
+[node name="TextureRect2" type="Control" parent="HealthContainer" unique_id=1712403129]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("3_ttpcr")
-expand_mode = 3
-stretch_mode = 4
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
-[node name="TextureRect4" type="TextureRect" parent="HealthContainer" unique_id=521674222]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("3_ttpcr")
-expand_mode = 3
-stretch_mode = 4
+[node name="Coin" type="AnimatedSprite2D" parent="HealthContainer/TextureRect2" unique_id=611357682]
+position = Vector2(16, 16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hgse7")
+autoplay = "default"
 
-[node name="TextureRect5" type="TextureRect" parent="HealthContainer" unique_id=1555972184]
-custom_minimum_size = Vector2(16, 16)
+[node name="TextureRect3" type="Control" parent="HealthContainer" unique_id=1483320358]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("3_ttpcr")
-expand_mode = 3
-stretch_mode = 4
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Coin" type="AnimatedSprite2D" parent="HealthContainer/TextureRect3" unique_id=1548670833]
+position = Vector2(16, 16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hgse7")
+autoplay = "default"
+
+[node name="TextureRect4" type="Control" parent="HealthContainer" unique_id=1313677343]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Coin" type="AnimatedSprite2D" parent="HealthContainer/TextureRect4" unique_id=774700748]
+position = Vector2(16, 16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hgse7")
+autoplay = "default"
+
+[node name="TextureRect5" type="Control" parent="HealthContainer" unique_id=349062765]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Coin" type="AnimatedSprite2D" parent="HealthContainer/TextureRect5" unique_id=1042394775]
+position = Vector2(16, 16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hgse7")
+autoplay = "default"

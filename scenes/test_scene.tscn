@@ -14,7 +14,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_7ddre"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 193, 153, 0, 0, 0, 0, 308, 330, 0, 0, 0, 0, 705, 159)
+"points": PackedVector2Array(0, 0, 0, 0, 193, 153, 0, 0, 0, 0, 308, 330, 0, 0, 0, 0, 926, 451)
 }
 point_count = 3
 
@@ -60,7 +60,7 @@ metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
 curve = SubResource("Curve2D_7ddre")
 
 [node name="Base" parent="." unique_id=2018472515 instance=ExtResource("3_nd71p")]
-position = Vector2(712, 158)
+position = Vector2(938, 429)
 
 [node name="Tower" parent="." unique_id=1378462679 instance=ExtResource("4_7ddre")]
 position = Vector2(419, 192)
