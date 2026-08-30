@@ -199,6 +199,7 @@ script = ExtResource("3_cbwxl")
 metadata/_custom_type_script = "uid://br4k1mhulpog1"
 
 [node name="AttackIntervalTimer" type="Timer" parent="." unique_id=1034118862]
+one_shot = true
 
 [node name="BulletSpawner" type="Node2D" parent="." unique_id=1072665542]
 
