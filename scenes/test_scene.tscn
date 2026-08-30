@@ -38,7 +38,7 @@ metadata/_custom_type_script = "uid://l30wx1ac771v"
 [sub_resource type="Resource" id="Resource_qjeyg"]
 script = ExtResource("6_3qnke")
 enemy_resource = ExtResource("6_rnaij")
-number_of_enemies = 2
+number_of_enemies = 3
 wave_length = 10.0
 spawn_time = 1.0
 metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"

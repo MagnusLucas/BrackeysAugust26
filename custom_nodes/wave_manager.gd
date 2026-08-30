@@ -35,6 +35,7 @@ func _on_wave_timer_timeout() -> void:
 	current_wave_id += 1
 	if current_wave_id < wave_array.size():
 		current_wave = wave_array[current_wave_id]
+		current_wave.enemies_spawned = 0
 		current_wave.spawning_finished.connect(spawn_interval_timer.stop)
 		spawn_interval_timer.start(current_wave.get_interval_between_spawns())
 		wave_timer.start(current_wave.wave_length)
