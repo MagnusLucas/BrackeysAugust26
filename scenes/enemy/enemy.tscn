@@ -81,7 +81,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_peoo5")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
 "speed": 8.0
 }, {
@@ -122,12 +122,11 @@ script = ExtResource("1_a3pup")
 stats = ExtResource("2_40wdo")
 path_follow = NodePath("..")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=1532550252]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=1532550252]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nj8pf")
-animation = &"walk"
+animation = &"death"
 autoplay = "walk"
-frame_progress = 0.6574614
 
 [node name="CircleCollisionShape" type="CollisionShape2D" parent="Enemy" unique_id=2102563477]
 scale = Vector2(2, 2)

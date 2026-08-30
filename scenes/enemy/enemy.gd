@@ -6,13 +6,17 @@ signal died
 @export var stats: EnemyStats
 @export var path_follow: PathFollow2D
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+var alive := true
+
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 
 
 func _physics_process(delta: float) -> void:
-	if path_follow:
+	if path_follow and alive:
 		path_follow.progress += stats.speed * delta
 
 
@@ -28,5 +32,11 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _die() -> void:
-	died.emit()
-	queue_free()
+	alive = false
+	animated_sprite_2d.play("death")
+	animated_sprite_2d.animation_finished.connect(
+		func():
+			died.emit()
+			queue_free(),
+			CONNECT_ONE_SHOT
+	)
