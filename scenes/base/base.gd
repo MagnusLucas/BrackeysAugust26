@@ -21,7 +21,12 @@ func _update_visuals() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	area.queue_free()
+	if area is Enemy:
+		area.queue_free()
+		take_damage()
+
+
+func take_damage() -> void:
 	base_stats.set_health(base_stats.hp - 1)
 	_update_visuals()
 

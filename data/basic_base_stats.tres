@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c2etpc4m3sety" path="res://data/base_stats.gd" id="1_qn46v"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_qn46v")
 max_hp = 2
 metadata/_custom_type_script = "uid://c2etpc4m3sety"

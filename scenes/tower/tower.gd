@@ -64,7 +64,7 @@ func _hit_enemy(enemy: Node2D) -> void:
 			(enemy as Enemy).take_damage(tower_stats.damage_per_bullet)
 		TowerStats.AttackTarget.BASE:
 			if not enemy is Base: return
-			#print("ouch, not my base!")
+			(enemy as Base).take_damage()
 		TowerStats.AttackTarget.TOWER:
 			if not enemy is Tower: return
 			(enemy as Tower).get_hit()

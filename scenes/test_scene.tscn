@@ -37,6 +37,7 @@ attack_target = 2
 metadata/_custom_type_script = "uid://l30wx1ac771v"
 
 [sub_resource type="Resource" id="Resource_qjeyg"]
+resource_local_to_scene = true
 script = ExtResource("6_3qnke")
 enemy_resource = ExtResource("6_rnaij")
 number_of_enemies = 3
@@ -50,6 +51,7 @@ colour = Color(0.63529414, 0.24313726, 0.54901963, 1)
 metadata/_custom_type_script = "uid://cnr71mbccl4q2"
 
 [sub_resource type="Resource" id="Resource_3qnke"]
+resource_local_to_scene = true
 script = ExtResource("6_3qnke")
 enemy_resource = SubResource("Resource_e7epm")
 number_of_enemies = 5
