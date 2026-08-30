@@ -18,6 +18,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Bullet" type="Area2D" unique_id=1626648985 node_paths=PackedStringArray("lifetime_timer")]
+top_level = true
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_83itf")

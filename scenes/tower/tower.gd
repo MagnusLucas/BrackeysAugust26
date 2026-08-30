@@ -39,6 +39,7 @@ func shoot(target: Node2D = enemies_in_range[0]) -> void:
 		TowerStats.AttackShape.BULLET:
 			var direction := target.global_position - bullet_spawner.global_position
 			var bullet := Bullet.spawn_bullet(50, direction, 10, tower_stats.damage_per_bullet, tower_area_2d)
+			bullet.position = global_position
 			bullet_spawner.add_child.call_deferred(bullet)
 		TowerStats.AttackShape.AREA:
 			area_attack_visual.attack()
