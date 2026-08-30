@@ -13,12 +13,10 @@ func _ready() -> void:
 	_update_visuals()
 	base_stats.lost_all_health.connect(_on_lost_all_health)
 
-
 func _update_visuals() -> void:
 	for child_idx in health_container.get_child_count():
-		var child: TextureRect = health_container.get_child(child_idx)
+		var child: Control = health_container.get_child(child_idx)
 		child.visible = base_stats.hp > child_idx
-
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Enemy:
