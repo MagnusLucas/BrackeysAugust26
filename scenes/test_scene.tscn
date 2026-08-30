@@ -67,6 +67,30 @@ wave_length = 6.0
 spawn_time = 3.0
 metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
 
+[sub_resource type="Resource" id="Resource_t7shy"]
+script = ExtResource("6_3qnke")
+enemy_resource = ExtResource("6_rnaij")
+number_of_enemies = 10
+wave_length = 10.0
+spawn_time = 5.0
+metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
+
+[sub_resource type="Resource" id="Resource_e5se4"]
+script = ExtResource("6_3qnke")
+enemy_resource = ExtResource("6_rnaij")
+number_of_enemies = 15
+wave_length = 7.0
+spawn_time = 5.0
+metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
+
+[sub_resource type="Resource" id="Resource_5yfd3"]
+script = ExtResource("6_3qnke")
+enemy_resource = ExtResource("6_rnaij")
+number_of_enemies = 20
+wave_length = 30.0
+spawn_time = 1.0
+metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
+
 [node name="Node" type="Node" unique_id=1642193432]
 script = ExtResource("1_6qxox")
 
@@ -91,12 +115,32 @@ base_stats = SubResource("Resource_8gixj")
 position = Vector2(419, 192)
 tower_stats = ExtResource("3_s36qc")
 
-[node name="Tower3" parent="." unique_id=272296311 instance=ExtResource("4_7ddre")]
-position = Vector2(177, 331)
+[node name="Tower5" parent="." unique_id=272296311 instance=ExtResource("4_7ddre")]
+position = Vector2(1021, 157)
+tower_stats = ExtResource("3_s36qc")
+
+[node name="Tower6" parent="." unique_id=670971676 instance=ExtResource("4_7ddre")]
+position = Vector2(631, 109)
+tower_stats = ExtResource("3_s36qc")
+
+[node name="Tower7" parent="." unique_id=181798429 instance=ExtResource("4_7ddre")]
+position = Vector2(612, 531)
+tower_stats = ExtResource("3_s36qc")
+
+[node name="Tower8" parent="." unique_id=402684376 instance=ExtResource("4_7ddre")]
+position = Vector2(175, 117)
+tower_stats = ExtResource("3_s36qc")
+
+[node name="Tower3" parent="." unique_id=1835652215 instance=ExtResource("4_7ddre")]
+position = Vector2(127, 447)
+tower_stats = SubResource("Resource_6qxox")
+
+[node name="Tower4" parent="." unique_id=1008836637 instance=ExtResource("4_7ddre")]
+position = Vector2(338, 536)
 tower_stats = SubResource("Resource_6qxox")
 
 [node name="Tower2" parent="." unique_id=2102954197 instance=ExtResource("4_7ddre")]
-position = Vector2(414, 349)
+position = Vector2(782, 257)
 tower_stats = SubResource("Resource_s36qc")
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=899718097 node_paths=PackedStringArray("parent", "wave_manager")]
@@ -107,7 +151,7 @@ metadata/_custom_type_script = "uid://bgrv1axsi84hd"
 
 [node name="WaveManager" type="Node" parent="." unique_id=350722552 node_paths=PackedStringArray("wave_timer", "spawn_interval_timer")]
 script = ExtResource("7_wtsjf")
-wave_array = Array[ExtResource("6_3qnke")]([SubResource("Resource_qjeyg"), SubResource("Resource_3qnke")])
+wave_array = Array[ExtResource("6_3qnke")]([SubResource("Resource_qjeyg"), SubResource("Resource_3qnke"), SubResource("Resource_t7shy"), SubResource("Resource_e5se4"), SubResource("Resource_5yfd3")])
 wave_timer = NodePath("WaveTimer")
 spawn_interval_timer = NodePath("SpawnIntervalTimer")
 

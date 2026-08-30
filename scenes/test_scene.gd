@@ -8,7 +8,7 @@ extends Node
 
 var last_wave_finished := false
 
-
+#chuk
 func _ready() -> void:
 	enemy_spawner.all_enemies_died.connect(_on_all_enemies_died)
 	wave_manager.last_wave_finished_spawning.connect(
