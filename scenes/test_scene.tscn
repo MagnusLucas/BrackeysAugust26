@@ -11,9 +11,9 @@
 [ext_resource type="Script" uid="uid://cnr71mbccl4q2" path="res://data/enemy_stats.gd" id="7_h3xc6"]
 [ext_resource type="Script" uid="uid://bpa1ym1cht2d3" path="res://custom_nodes/wave_manager.gd" id="7_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://ciax1ej5mlsh1" path="res://scenes/upcoming_waves_ui/upcoming_waves_ui.tscn" id="8_rnaij"]
+[ext_resource type="Texture2D" uid="uid://cc13cmsi0g283" path="res://assets/Grass.png" id="11_6qxox"]
 [ext_resource type="Script" uid="uid://6k204edkwe33" path="res://components/back_to_main_menu_button.gd" id="12_gthg3"]
 [ext_resource type="Script" uid="uid://celsfijrpwueh" path="res://components/reload_current_scene_button.gd" id="12_ntc4i"]
-[ext_resource type="Texture2D" uid="uid://cc13cmsi0g283" path="res://assets/Grass.png" id="11_6qxox"]
 
 [sub_resource type="Curve2D" id="Curve2D_7ddre"]
 _data = {
@@ -131,6 +131,13 @@ size_flags_vertical = 6
 text = "RESTART"
 script = ExtResource("12_ntc4i")
 
+[node name="BackToMainMenuButton" type="Button" parent="LosePanel/VBoxContainer" unique_id=2049764649]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "MAIN MENU"
+script = ExtResource("12_gthg3")
+
 [node name="WinPanel" type="PanelContainer" parent="." unique_id=1915955609]
 process_mode = 2
 visible = false
@@ -163,6 +170,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "MAIN MENU"
 script = ExtResource("12_gthg3")
+
 [node name="AnimatedSprite2D" type="TextureRect" parent="." unique_id=672893781]
 z_index = -1
 anchors_preset = 15
