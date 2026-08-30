@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ciax1ej5mlsh1" path="res://scenes/upcoming_waves_ui/upcoming_waves_ui.tscn" id="8_rnaij"]
 [ext_resource type="Script" uid="uid://6k204edkwe33" path="res://components/back_to_main_menu_button.gd" id="12_gthg3"]
 [ext_resource type="Script" uid="uid://celsfijrpwueh" path="res://components/reload_current_scene_button.gd" id="12_ntc4i"]
+[ext_resource type="Texture2D" uid="uid://cc13cmsi0g283" path="res://assets/Grass.png" id="11_6qxox"]
 
 [sub_resource type="Curve2D" id="Curve2D_7ddre"]
 _data = {
@@ -74,6 +75,7 @@ position = Vector2(177, 331)
 tower_stats = SubResource("Resource_6qxox")
 
 [node name="Tower2" parent="." unique_id=2102954197 instance=ExtResource("4_7ddre")]
+visible = false
 position = Vector2(414, 349)
 tower_stats = SubResource("Resource_s36qc")
 
@@ -161,3 +163,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "MAIN MENU"
 script = ExtResource("12_gthg3")
+[node name="AnimatedSprite2D" type="TextureRect" parent="." unique_id=672893781]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_6qxox")

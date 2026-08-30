@@ -3,21 +3,32 @@
 [ext_resource type="Script" uid="uid://bgyxlsrlf60fp" path="res://scenes/base/base.gd" id="1_ccqok"]
 [ext_resource type="Script" uid="uid://bmyiou3m7ft1g" path="res://components/circle_collision_shape.gd" id="1_yoymw"]
 [ext_resource type="Resource" uid="uid://dacwdrcvc2p5y" path="res://data/basic_base_stats.tres" id="2_2ket1"]
+[ext_resource type="Texture2D" uid="uid://cu2brrjdox8jr" path="res://assets/towers/King.png" id="3_t7shy"]
 [ext_resource type="Texture2D" uid="uid://0jssmfmsn2ra" path="res://icon.svg" id="3_ttpcr"]
 
-[sub_resource type="Gradient" id="Gradient_ccqok"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.5421687, 0.70481926)
-colors = PackedColorArray(0.81751364, 0.5005976, 0.28009167, 1, 0.37079483, 0.20397335, 0.08314956, 1, 1, 1, 1, 0)
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5se4"]
+atlas = ExtResource("3_t7shy")
+region = Rect2(0, 0, 59, 60)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
-gradient = SubResource("Gradient_ccqok")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.5)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yfd3"]
+atlas = ExtResource("3_t7shy")
+region = Rect2(59, 0, 59, 60)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ttpcr"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_nj8pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5se4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yfd3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_opt3f"]
 radius = 64.0
 
 [node name="Base" type="Area2D" unique_id=2018472515]
@@ -26,11 +37,14 @@ collision_mask = 2
 script = ExtResource("1_ccqok")
 base_stats = ExtResource("2_2ket1")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=946779255]
-texture = SubResource("GradientTexture2D_g4v7s")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=928223214]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nj8pf")
+autoplay = "default"
+frame_progress = 0.8873383
 
 [node name="CircleCollisionShape" type="CollisionShape2D" parent="." unique_id=1503516649]
-shape = SubResource("CircleShape2D_ttpcr")
+shape = SubResource("CircleShape2D_opt3f")
 script = ExtResource("1_yoymw")
 size = 64.0
 metadata/_custom_type_script = "uid://bmyiou3m7ft1g"
