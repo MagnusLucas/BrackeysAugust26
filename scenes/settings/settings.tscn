@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://0oiop1vjvrod"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnmoi"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.7882353, 0.14117648, 0.39215687, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.22352941, 0.20392157, 0.34117648, 1)
+
+[sub_resource type="DPITexture" id="DPITexture_26ncd"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+
+[node name="Settings" type="PanelContainer" unique_id=1917538435]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=598934722]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1709488278]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.0627451, 0.078431375, 0.12156863, 1)
+theme_override_font_sizes/font_size = 64
+text = "VOLUME"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1281966988]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer" unique_id=311718677]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rnmoi")
+theme_override_icons/checked = SubResource("DPITexture_26ncd")
+button_pressed = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=887682440]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Enable"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=904316606]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.65882355, 0.7921569, 0.34509805, 1)
+theme_override_font_sizes/font_size = 32
+text = "BACK"

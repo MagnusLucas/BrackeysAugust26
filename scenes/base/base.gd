@@ -1,6 +1,8 @@
 class_name Base
 extends Area2D
 
+signal all_health_lost
+
 @export var base_stats: BaseStats
 
 @onready var health_container: HBoxContainer = %HealthContainer
@@ -25,4 +27,4 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_lost_all_health() -> void:
-	get_tree().change_scene_to_file.call_deferred("res://scenes/main_menu.tscn")
+	all_health_lost.emit()

@@ -109,8 +109,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dxjon"]
-radius = 25.5
+[sub_resource type="CircleShape2D" id="CircleShape2D_tjssy"]
+radius = 32.0
 
 [node name="PathFollow2D" type="PathFollow2D" unique_id=1201246739]
 loop = false
@@ -130,7 +130,7 @@ frame_progress = 0.4749244
 
 [node name="CircleCollisionShape" type="CollisionShape2D" parent="Enemy" unique_id=2102563477]
 scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_dxjon")
+shape = SubResource("CircleShape2D_tjssy")
 script = ExtResource("1_4a83h")
 size = 32.0
 metadata/_custom_type_script = "uid://bmyiou3m7ft1g"

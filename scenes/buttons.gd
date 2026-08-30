@@ -3,7 +3,7 @@ extends VBoxContainer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #handling button animation
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#i am aware that this is not how one should use animation players, hoverer I am to pissed at how using atlas is a pain to stop commiting to this
 	#this will cause no lagginess whatsoever :> i have faith
 	if $Play.is_hovered():

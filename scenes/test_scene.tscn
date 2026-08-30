@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://w8bwcijdbdd3"]
 
+[ext_resource type="Script" uid="uid://d2rb06xr56d23" path="res://scenes/test_scene.gd" id="1_6qxox"]
 [ext_resource type="Script" uid="uid://l30wx1ac771v" path="res://data/tower_stats.gd" id="3_h3xc6"]
 [ext_resource type="PackedScene" uid="uid://b6qexenqqef30" path="res://scenes/base/base.tscn" id="3_nd71p"]
 [ext_resource type="Resource" uid="uid://tjpah63bte83" path="res://data/basic_tower_stats.tres" id="3_s36qc"]
@@ -10,6 +11,8 @@
 [ext_resource type="Script" uid="uid://cnr71mbccl4q2" path="res://data/enemy_stats.gd" id="7_h3xc6"]
 [ext_resource type="Script" uid="uid://bpa1ym1cht2d3" path="res://custom_nodes/wave_manager.gd" id="7_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://ciax1ej5mlsh1" path="res://scenes/upcoming_waves_ui/upcoming_waves_ui.tscn" id="8_rnaij"]
+[ext_resource type="Script" uid="uid://6k204edkwe33" path="res://components/back_to_main_menu_button.gd" id="12_gthg3"]
+[ext_resource type="Script" uid="uid://celsfijrpwueh" path="res://components/reload_current_scene_button.gd" id="12_ntc4i"]
 
 [sub_resource type="Curve2D" id="Curve2D_7ddre"]
 _data = {
@@ -54,12 +57,13 @@ spawn_time = 3.0
 metadata/_custom_type_script = "uid://bt1xs3f0rj8s1"
 
 [node name="Node" type="Node" unique_id=1642193432]
+script = ExtResource("1_6qxox")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1088636374]
 curve = SubResource("Curve2D_7ddre")
 
 [node name="Base" parent="." unique_id=2018472515 instance=ExtResource("3_nd71p")]
-position = Vector2(712, 158)
+position = Vector2(739, 182)
 
 [node name="Tower" parent="." unique_id=1378462679 instance=ExtResource("4_7ddre")]
 position = Vector2(419, 192)
@@ -91,3 +95,69 @@ spawn_interval_timer = NodePath("SpawnIntervalTimer")
 
 [node name="UpcomingWavesUI" parent="." unique_id=1173204523 node_paths=PackedStringArray("wave_manager") instance=ExtResource("8_rnaij")]
 wave_manager = NodePath("../WaveManager")
+
+[node name="LosePanel" type="PanelContainer" parent="." unique_id=1923862127]
+process_mode = 2
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.5
+offset_top = -124.0
+offset_right = 208.5
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LosePanel" unique_id=1192031036]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LosePanel/VBoxContainer" unique_id=496970227]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.65882355, 0.7921569, 0.34509805, 1)
+theme_override_font_sizes/font_size = 64
+text = "Lol, loser!"
+
+[node name="RestartButton" type="Button" parent="LosePanel/VBoxContainer" unique_id=1159891826]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "RESTART"
+script = ExtResource("12_ntc4i")
+
+[node name="WinPanel" type="PanelContainer" parent="." unique_id=1915955609]
+process_mode = 2
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.5
+offset_top = -124.0
+offset_right = 208.5
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinPanel" unique_id=15261768]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WinPanel/VBoxContainer" unique_id=623816734]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.65882355, 0.7921569, 0.34509805, 1)
+theme_override_font_sizes/font_size = 64
+text = "You win! GJ!"
+
+[node name="BackToMainMenuButton" type="Button" parent="WinPanel/VBoxContainer" unique_id=1794053465]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "MAIN MENU"
+script = ExtResource("12_gthg3")
