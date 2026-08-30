@@ -75,7 +75,6 @@ position = Vector2(177, 331)
 tower_stats = SubResource("Resource_6qxox")
 
 [node name="Tower2" parent="." unique_id=2102954197 instance=ExtResource("4_7ddre")]
-visible = false
 position = Vector2(414, 349)
 tower_stats = SubResource("Resource_s36qc")
 
@@ -171,11 +170,12 @@ size_flags_vertical = 6
 text = "MAIN MENU"
 script = ExtResource("12_gthg3")
 
-[node name="AnimatedSprite2D" type="TextureRect" parent="." unique_id=672893781]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=672893781]
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("11_6qxox")
