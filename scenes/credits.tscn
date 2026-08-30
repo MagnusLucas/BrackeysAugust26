@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cxpxwulf6wb48"]
+
+[ext_resource type="Script" uid="uid://cvkdq56jjv55y" path="res://scenes/credits.gd" id="1_2fbfq"]
+[ext_resource type="Texture2D" uid="uid://bmuwkyvno5uqe" path="res://assets/main_menu/credits1.png" id="2_8gwij"]
+[ext_resource type="Texture2D" uid="uid://dqnivvpq15slf" path="res://assets/main_menu/credits2.png" id="3_mah5v"]
+[ext_resource type="Theme" uid="uid://l0mu2yy7t2dd" path="res://assets/game_theme.tres" id="4_kyhnv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nj8pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8gwij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mah5v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Credits" type="PanelContainer" unique_id=1644340735]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2fbfq")
+
+[node name="Background" type="Control" parent="." unique_id=1373009765]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+
+[node name="TextureRect" type="AnimatedSprite2D" parent="Background" unique_id=86190150]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nj8pf")
+autoplay = "default"
+frame = 1
+frame_progress = 0.84339964
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1683935326]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=760755509]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer" unique_id=1874319098]
+layout_mode = 2
+theme_override_font_sizes/font_size = 121
+text = "Back to menu"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=1046555414]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=708837520]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.21
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer" unique_id=1829739794]
+layout_mode = 2
+theme = ExtResource("4_kyhnv")
+theme_override_font_sizes/normal_font_size = 30
+text = "magnuslucas - programming
+zapzap - beautiful graphics
+manakoyami - credits"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1218515573]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
