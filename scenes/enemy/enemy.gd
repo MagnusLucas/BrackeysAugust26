@@ -1,6 +1,8 @@
 class_name Enemy
 extends Area2D
 
+signal died
+
 @export var stats: EnemyStats
 @export var path_follow: PathFollow2D
 
@@ -26,4 +28,5 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _die() -> void:
+	died.emit()
 	queue_free()

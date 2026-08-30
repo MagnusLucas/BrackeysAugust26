@@ -1,6 +1,7 @@
 class_name WaveManager
 extends Node
 
+signal last_wave_finished_spawning
 signal enemy_spawn_requested(wave: Wave)
 
 @export var wave_array: Array[Wave]
@@ -19,6 +20,7 @@ func _ready() -> void:
 		current_wave.spawning_finished.connect(spawn_interval_timer.stop)
 		spawn_interval_timer.start(current_wave.get_interval_between_spawns())
 		wave_timer.start(current_wave.wave_length)
+		wave_array[wave_array.size() - 1].spawning_finished.connect(last_wave_finished_spawning.emit)
 
 
 func is_last_wave() -> bool:
@@ -33,6 +35,7 @@ func _on_wave_timer_timeout() -> void:
 	current_wave_id += 1
 	if current_wave_id < wave_array.size():
 		current_wave = wave_array[current_wave_id]
+		current_wave.enemies_spawned = 0
 		current_wave.spawning_finished.connect(spawn_interval_timer.stop)
 		spawn_interval_timer.start(current_wave.get_interval_between_spawns())
 		wave_timer.start(current_wave.wave_length)
